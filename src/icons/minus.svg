@@ -1,0 +1,15 @@
+ <svg
+      class="fill-current"
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9.00034 5.25012H3C2.58579 5.25012 2.25 5.58591 2.25 6.00012C2.25 6.41433 2.58579 6.75012 3 6.75012H9.00034C9.41455 6.75012 9.75034 6.41433 9.75034 6.00012C9.75034 5.58591 9.41455 5.25012 9.00034 5.25012Z"
+        fill="currentColor"
+      />
+    </svg>
