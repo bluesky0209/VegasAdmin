@@ -26,13 +26,18 @@ const selectStyles = (isDark: boolean) => ({
         color: state.isSelected
             ? 'white'
             : isDark ? 'rgba(255,255,255,0.9)' : 'rgb(55 65 81)',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        padding: '6px 12px'
     }),
     menu: (base: any) => ({
         ...base,
         borderRadius: '0.5rem',
         backgroundColor: isDark ? '#101828' : 'white',
-        border: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgb(209 213 219)'
+        border: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgb(209 213 219)',
+        maxHeight: '300px', // Increased height
+        overflowY: 'hidden',
+        overflowX: 'hidden',
+
     }),
     singleValue: (base: any) => ({
         ...base,
@@ -44,15 +49,25 @@ interface SearchSelectProps {
     options: any[];
     value: any;
     onChange: (value: any) => void;
+    placeholder?: string;
+    isDisabled?: boolean;
 }
 
-const SearchSelect = ({ options, value, onChange }: SearchSelectProps) => {
+const SearchSelect = ({ options, value, onChange, placeholder, isDisabled }: SearchSelectProps) => {
     return (
         <Select
             options={options}
             value={value}
             onChange={onChange}
-            styles={selectStyles(useTheme().theme === 'dark')}
+            placeholder={placeholder}
+            styles={{
+                ...selectStyles(useTheme().theme === 'dark'),
+                placeholder: (base: any) => ({
+                    ...base,
+                    color: useTheme().theme === 'dark' ? 'white' : 'rgb(55 65 81)'
+                })
+            }}
+            isDisabled={isDisabled}
             className="min-w-[150px] z-100"
         />
     )

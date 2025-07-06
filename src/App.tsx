@@ -70,6 +70,7 @@ import ReportGame from "./pages/ReportGame";
 import ReportUser from "./pages/ReportUser";
 import PaymentsReport from "./pages/PaymentsReport";
 import ReportCash from "./pages/ReportCash";
+import Summary from "./pages/Summary";
 
 export default function App() {
   const { auth } = useSelector((state: any) => ({
@@ -112,6 +113,7 @@ export default function App() {
             <Route path="/report-user" element={isAuthenticated ? <ReportUser /> : <Navigate to="/signin" />} />
             <Route path="/report-payments" element={isAuthenticated ? <PaymentsReport /> : <Navigate to="/signin" />} />
             <Route path="/report-cash" element={isAuthenticated ? <ReportCash /> : <Navigate to="/signin" />} />
+            <Route path="/summary" element={isAuthenticated ? <Summary /> : <Navigate to="/signin" />} />
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/invoice" element={<Invoices />} />

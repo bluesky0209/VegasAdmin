@@ -241,27 +241,27 @@ export default function GameListTable() {
                             {currentData?.map((item: any, i: any) => (
                                 <TableRow key={i + 1} className="cursor-pointer">
                                     <TableCell className="px-4 py-4 font-normal text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap ">
-                                        {item.game.SectionId}
+                                        {item?.game?.SectionId}
                                     </TableCell>
                                     <TableCell className="flex items-center gap-2 px-4 py-4 font-normal text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap ">
-                                        <img className="w-10 h-10 rounded-md" src={item.game.aggregator === 'skyxspin' ? `https://admin.skyxspin.com/${item.game.Icon}` : item.game.aggregator === 'playxspin' ? item.game.Icon : `https://static.gmnggate.com/thumbnails/235x235/${item.game.Id}.jpg`} alt={item.game.gameName} />
-                                        {item.game.Name}
+                                        <img className="w-10 h-10 rounded-md" src={item?.game?.aggregator === 'skyxspin' ? `https://admin.skyxspin.com/${item?.game?.Icon}` : item?.game?.aggregator === 'playxspin' ? item?.game?.Icon : `https://static.gmnggate.com/thumbnails/235x235/${item?.game?.Id}.jpg`} alt={item?.game?.gameName} />
+                                        {item?.game?.Name}
                                     </TableCell>
 
                                     <TableCell className="px-4 py-4 font-normal text-gray-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-gray-400 whitespace-nowrap ">
-                                        {item.currency}
+                                        {item?.currency}
                                     </TableCell>
                                     <TableCell className="px-4 py-4 font-medium text-red-800 border border-gray-100 dark:border-white/[0.05] dark:text-red-600 text-theme-sm whitespace-nowrap ">
-                                        {item.totalBet.toFixed(2)}
+                                        {item?.totalBet?.toFixed(2)}
                                     </TableCell>
                                     <TableCell className="px-4 py-4 font-normal text-green-800 border border-gray-100 dark:border-white/[0.05] text-theme-sm dark:text-green-400 whitespace-nowrap ">
-                                        {item.totalWin.toFixed(2)}
+                                        {item?.totalWin?.toFixed(2)}
                                     </TableCell>
                                     <TableCell className={`px-4 py-4 font-normal border border-gray-100 dark:border-white/[0.05] text-theme-sm whitespace-nowrap ${(item.totalBet - item.totalWin) > 0 ? 'text-green-800 dark:text-green-400' : 'text-red-600 dark:text-red-600'}`}>
-                                        {(item.totalBet - item.totalWin).toFixed(2)}
+                                        {(item?.totalBet - item?.totalWin)?.toFixed(2)}
                                     </TableCell>
                                     <TableCell className="px-4 py-4 font-normal text-gray-800 border dark:border-white/[0.05] border-gray-100 text-theme-sm dark:text-gray-400 whitespace-nowrap ">
-                                        {item.totalCount}
+                                        {item?.totalCount}
                                     </TableCell>
 
                                 </TableRow>

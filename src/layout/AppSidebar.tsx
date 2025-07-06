@@ -33,6 +33,7 @@ const navItems: NavItem[] = [
     name: "Summary",
     icon: <DocsIcon />,
     subItems: [
+      { name: "Summary", path: "/summary", roles: ["admin", "superagent", "agent"] },
       { name: "Game", path: "/report-game", roles: ["admin", "superagent", "agent"] },
       { name: "User", path: "/report-user", roles: ["admin", "superagent", "agent"] },
       { name: "Payments", path: "/report-payments", roles: ["admin", "superagent", "agent"] }

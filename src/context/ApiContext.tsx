@@ -32,6 +32,9 @@ interface ApiContextType {
     getReportFinance: (params: any) => Promise<any>;
     getReportDeposit: (params: any) => Promise<any>;
     getReportCash: (params: any) => Promise<any>;
+    getUsersLabel: (params: any) => Promise<any>;
+    getReportProfit: (params: any) => Promise<any>;
+    getReportProfitByRole: (params: any) => Promise<any>;
 }
 
 const api = axios.create({
@@ -141,6 +144,10 @@ export const ApiProvider = ({ children }: { children: React.ReactNode }) => {
         return api.get('api/v3/users/admin/info', params);
     }
 
+    const getUsersLabel = async (params: any) => {
+        return api.post('api/v3/users/admin/label', params);
+    }
+
     const getUserReports = async (params: any) => {
         return api.post('api/v3/users/admin/report', params);
     }
@@ -217,6 +224,14 @@ export const ApiProvider = ({ children }: { children: React.ReactNode }) => {
         return api.post('api/v3/payments/report-user', params);
     }
 
+    const getReportProfit = async (params: any) => {
+        return api.post('api/v3/reports/report-profit', params);
+    }
+
+    const getReportProfitByRole = async (params: any) => {
+        return api.post('api/v3/reports/report-profit-by-role', params);
+    }
+
     return (
         <APIContext.Provider
             value={{
@@ -225,6 +240,7 @@ export const ApiProvider = ({ children }: { children: React.ReactNode }) => {
                 getUser,
                 deleteUser,
                 getUserReports,
+                getUsersLabel,
                 getRoles,
                 createUser,
                 updateUserData,
@@ -246,7 +262,9 @@ export const ApiProvider = ({ children }: { children: React.ReactNode }) => {
                 getGamesLabel,
                 getReportFinance,
                 getReportDeposit,
-                getReportCash
+                getReportCash,
+                getReportProfit,
+                getReportProfitByRole
             }}
         >
             {children}
